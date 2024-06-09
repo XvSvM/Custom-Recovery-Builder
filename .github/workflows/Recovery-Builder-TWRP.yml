@@ -40,7 +40,7 @@ on:
       LDCHECK:
         description: 'Path of blobs to check' # Use it know what kind of dependencies your missing for decryption blobs.
         required: true
-        default: 'recovery/root'
+        default: 'system/bin/qseecomd'
 
 jobs:
   build:
