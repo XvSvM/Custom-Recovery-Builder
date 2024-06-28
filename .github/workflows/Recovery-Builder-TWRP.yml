@@ -147,7 +147,7 @@ jobs:
         cd android-recovery
         source build/envsetup.sh
         export ALLOW_MISSING_DEPENDENCIES=true
-        lunch  twrp_dolphin_fvd_p1-eng && make clean && make ${{ github.event.inputs.BUILD_TARGET }}image -j$(nproc --all)
+        lunch  twrp_dolphin-eng && make clean && make ${{ github.event.inputs.BUILD_TARGET }}image -j$(nproc --all)
         echo "Done building your ${{ github.event.inputs.BUILD_TARGET }}.img"
       
     - name: Set Build Date # Output will be use in Release
