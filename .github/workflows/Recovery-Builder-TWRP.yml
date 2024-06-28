@@ -15,19 +15,19 @@ on:
       DEVICE_TREE:
         description: 'Custom Recovery Tree' # Your already made Device Tree for TWRP
         required: true
-        default: 'https://github.com/XvSvM/Gamebox_m98.git'
+        default: 'https://github.com/XvSvM/H3_device_dolphin_dolphin_fvd_p1.git'
       DEVICE_TREE_BRANCH:
         description: 'Custom Recovery Tree Branch' # Your Device Tree Branch, make sure it's right.
         required: true
-        default: 'eros_p1-eng-10-QP1A.191105.004-413-test-keys'
+        default: 'dolphin_fvd_p1-eng-7.0-NRD91N-20230311-test-keys'
       DEVICE_PATH:
         description: 'Specify your Device Path' # As is, just like your DEVICE_PATH in your BoardConfig.mk
         required: true
-        default: 'device/google/eros-p1'
+        default: 'device/dolphin/dolphin_fvd_p1'
       DEVICE_NAME:
         description: 'Specify your Device Codename' # As is, just like your PRODUCT_DEVICE in your device tree.
         required: true
-        default: 'eros-p1'
+        default: 'dolphin_fvd_p1'
       BUILD_TARGET:
         description: 'Specify your Build Target' # Pick among boot, recovery and vendor_boot
         required: true
@@ -147,7 +147,7 @@ jobs:
         cd android-recovery
         source build/envsetup.sh
         export ALLOW_MISSING_DEPENDENCIES=true
-        lunch twrp_eros-eng && make clean && make ${{ github.event.inputs.BUILD_TARGET }}image -j$(nproc --all)
+        lunch  twrp_dolphin_fvd_p1-eng && make clean && make ${{ github.event.inputs.BUILD_TARGET }}image -j$(nproc --all)
         echo "Done building your ${{ github.event.inputs.BUILD_TARGET }}.img"
       
     - name: Set Build Date # Output will be use in Release
